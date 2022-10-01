@@ -1,0 +1,5 @@
+{$HOST} {
+    reverse_proxy /* node1:8080 node2:8080 node3:8080 {
+        lb_policy ip_hash
+    }
+}
