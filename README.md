@@ -65,7 +65,11 @@ docker push analythium/python-shiny-lb:0.1
 
 If you are running your container behind a TLS Termination Proxy (load balancer) like Nginx or Caddy, add the option `--proxy-headers`, this will tell Uvicorn to trust the headers sent by that proxy telling it that the application is running behind HTTPS, etc.
 
-## Docker Compose
+## Deployment
+
+### Docker Compose
+
+Deploy to a VM.
 
 Docker Compose anchors and extensions: https://www.howtogeek.com/devops/how-to-simplify-docker-compose-files-with-yaml-anchors-and-extensions/
 
@@ -76,3 +80,44 @@ Try `lb_policy random` (default) to see the test fail. `lb_policy ip_hash` will 
 ```bash
 docker-compose up -d
 ```
+
+### DigitalOcean App Platform
+
+- In the Dashboard, go to Apps / Create App
+- Under Resources: select Docker Hub and type in the repository name and tag, click Next
+- Edit the Plan, e.g. 1 vCPU under Basic Plan for $5/mo
+- No need to set environment variables for now
+- Edit the info as needed, e.g. data region, app name, etc.
+- You can review settings once more: if you click on the Web Service settings, you can override the Run Command, HTTP Port, and Request Route
+- If all look good, click Create Resource and wait until deployment is complete, then follow the link and check you app
+
+### Heroku
+
+Install Git and the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and log in using `heroku login`.
+
+Then follow [this guide](https://devcenter.heroku.com/articles/git) to set up and deploy with Git:
+
+```bash
+# creat the app
+heroku create -a python-shiny
+# check that the heroku remote is added
+git remote -v
+```
+
+Now we use the `heroku.yml` as our manifest to build the Docker image on Heroku:
+
+```bash
+# set the stack of your app to container:
+heroku stack:set container
+```
+
+Check in your commits, then `git push heroku master`
+
+- In your Heroku Dashboard, click New / Create New App
+- Type in app name `python-shiny`, then Create app
+
+`heroku stack:set container -a python-shiny`
+
+## License
+
+[MIT](LICENSE) 2022 (c) [Analythium Solutions Inc.](https://analythium.io)
