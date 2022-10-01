@@ -4,7 +4,7 @@ import starlette.responses
 app_ui = ui.page_fluid(
     ui.markdown(
         """
-        ## Sticky load balancing test
+        ## Sticky load balancing test - Shiny for Python
 
         The purpose of this app is to determine if HTTP requests made by the client are
         correctly routed back to the same Python process where the session resides. It
