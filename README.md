@@ -71,9 +71,9 @@ If you are running your container behind a TLS Termination Proxy (load balancer)
 
 Deploy to a VM.
 
-Docker Compose anchors and extensions: https://www.howtogeek.com/devops/how-to-simplify-docker-compose-files-with-yaml-anchors-and-extensions/
+The Docker Compose YAML file uses [anchors and extensions](https://www.howtogeek.com/devops/how-to-simplify-docker-compose-files-with-yaml-anchors-and-extensions/) because we deploy the same image multiple times so that we can load balance between the replicas. We do it this way, because the standard load balancing for scaling services is round robin, that is not sticky.
 
-Caddy LB: https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#load-balancing
+We use [Caddy](https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#load-balancing) for load balancing.
 
 Try `lb_policy random` (default) to see the test fail. `lb_policy ip_hash` will succeed:
 
@@ -111,12 +111,9 @@ Now we use the `heroku.yml` as our manifest to build the Docker image on Heroku:
 heroku stack:set container
 ```
 
-Check in your commits, then `git push heroku master`
+Check in your commits, then `git push heroku main`. This will build the image and deploy your app on Heroku.
 
-- In your Heroku Dashboard, click New / Create New App
-- Type in app name `python-shiny`, then Create app
-
-`heroku stack:set container -a python-shiny`
+Get the app URL from `heroku info`, then check the app.
 
 ## License
 
