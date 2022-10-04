@@ -14,7 +14,7 @@ shiny create app
 shiny run --reload app/app.py
 ```
 
-Our `Dockerfile` has the following:
+A minimal `Dockerfile` needs the following:
 
 ```Dockerfile
 FROM python:3.9
@@ -22,6 +22,28 @@ COPY basic/requirements.txt .
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 WORKDIR app
 COPY basic .
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
+```
+
+But `pip` will warn against installing as a root user, so we do this instead:
+
+```Dockerfile
+FROM python:3.9
+
+# Add user an change working directory
+RUN addgroup --system app && adduser --system --ingroup app app
+WORKDIR /home/app
+RUN chown app:app -R /home/app
+
+# Install requirements
+COPY basic/requirements.txt .
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+# Copy the app
+COPY basic .
+
+# Run app on port 8080
+EXPOSE 8080
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
 ```
 
@@ -118,3 +140,23 @@ Get the app URL from `heroku info`, then check the app.
 ## License
 
 [MIT](LICENSE) 2022 (c) [Analythium Solutions Inc.](https://analythium.io)
+
+
+```bash
+docker-compose -f compose-repl.yml up -d
+
+## follow the logs
+docker-compose logs -f
+
+docker-compose down --remove-orphans
+```
+
+```bash
+docker build -f Dockerfile.hist -t analythium/python-shiny-hist:0.1 .
+
+docker run -p 8080:8080 analythium/python-shiny-hist:0.1
+
+# push
+docker push analythium/python-shiny-lb:0.1
+
+```
