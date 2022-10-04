@@ -1,0 +1,19 @@
+name: python-shiny
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+region: nyc
+services:
+- name: python-shiny-lb
+  http_port: 8080
+  image:
+    registry: analythium
+    registry_type: DOCKER_HUB
+    repository: python-shiny-lb
+    tag: "0.1"
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  routes:
+  - path: /
+  run_command: uvicorn app:app --host 0.0.0.0 --port 8080
+  source_dir: /
