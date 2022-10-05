@@ -1,4 +1,4 @@
-# Shiny for Python Apps with Docker
+# Scaling Shiny Apps for Python and R
 
 > We had high hopes for Heroku, as they have a documented option for session affinity. However, for reasons we don’t yet understand, the test application consistently fails to pass. We’ll update this page as we find out more. - [Shiny for Python docs](https://shiny.rstudio.com/py/docs/deploy.html#heroku)
 
@@ -16,7 +16,7 @@ The following options support WebSockets, so let's see how well they can load ba
 - [Fly.io](./03-fly.md)
 - [Docker Compose](./04-docker-compose.md)
 
-Deploying with Docker is straightforward, and everything works fine as long as the number of replicas is 1. Increasing the number of replicas is difficult, but not impossible.
+Deploying with Docker is straightforward, and everything works fine as long as the number of replicas is 1. Increasing the number of replicas is trickier, but not impossible.
 
 This repository contains supporting material ofr the following blog posts on the _Hosting Data Apps_ ([hosting.analythium.io](https://hosting.analythium.io/)) website:
 
