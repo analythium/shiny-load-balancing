@@ -1,0 +1,37 @@
+version: "3.7"
+
+x-node: &node
+  image: analythium/python-shiny-lb:0.1
+  restart: always
+  expose:
+    - "8080"
+
+services:
+
+  node1:
+    <<: *node
+  node2:
+    <<: *node
+  node3:
+    <<: *node
+
+  caddy:
+    image: caddy:2.4.6-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - $PWD/Caddyfile-lb:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - node1
+      - node2
+      - node3
+    environment:
+      - HOST=":80"
+
+volumes:
+  caddy_data:
+  caddy_config:

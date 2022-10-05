@@ -1,0 +1,19 @@
+name: r-shiny
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+region: nyc
+services:
+- name: r-shiny-lb
+  http_port: 8080
+  image:
+    registry: analythium
+    registry_type: DOCKER_HUB
+    repository: r-shiny-lb
+    tag: "0.1"
+  instance_count: 1
+  instance_size_slug: professional-xs
+  routes:
+  - path: /
+  run_command: R -e "shiny::runApp('/home/app', port = 8080, host = '0.0.0.0')"
+  source_dir: /
