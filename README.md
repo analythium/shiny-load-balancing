@@ -2,6 +2,22 @@
 
 > We had high hopes for Heroku, as they have a documented option for session affinity. However, for reasons we don’t yet understand, the test application consistently fails to pass. We’ll update this page as we find out more. - [Shiny for Python docs](https://shiny.rstudio.com/py/docs/deploy.html#heroku)
 
+**Shiny for R and Python** can be [deployed](https://shiny.rstudio.com/py/docs/deploy.html) in _conventional ways_, using RStudio Connect, Shiny Server Open Source, and Shinyapps.io.
+
+When it comes to _alternative options_, the [docs](https://shiny.rstudio.com/py/docs/deploy.html#other-hosting-options) tell you to:
+
+- have support for _WebSockets_, and
+- use _sticky_ load balancing.
+
+The following options support WebSockets, so let's see how well they can load balance among multiple app processes:
+
+- [Heroku](./01-heroku.md)
+- [DigitalOcean App Platform](./02-do-app-platform.md)
+- [Fly.io](./03-fly.md)
+- [Docker Compose](./04-docker-compose.md)
+
+Deploying with Docker is straightforward, and everything works fine as long as the number of replicas is 1. Increasing the number of replicas is difficult, but not impossible.
+
 This repository contains supporting material ofr the following blog posts on the _Hosting Data Apps_ ([hosting.analythium.io](https://hosting.analythium.io/)) website:
 
 - [Containerizing Shiny for Python Applications](https://hosting.analythium.io/)
@@ -48,24 +64,6 @@ docker push analythium/r-shiny-lb:0.1
 # DO
 doctl apps create --spec app-r.yml
 ```
-
-## Deployment
-
-Shiny for Python can be [deployed](https://shiny.rstudio.com/py/docs/deploy.html) in conventional ways, using RStudio Connect, Shiny Server Open Source, and Shinyapps.
-
-When it comes to alternative options, the [docs](https://shiny.rstudio.com/py/docs/deploy.html#other-hosting-options) tell you to:
-
-- have support for WebSockets, and
-- use sticy load balancing.
-
-This is where the test applications come in. We will try approaches for the following:
-
-- [Heroku](./01-heroku.md)
-- [DigitalOcean App Platform](./02-do-app-platform.md)
-- [Fly.io](./03-fly.md)
-- [Docker Compose](./04-docker-compose.md)
-
-Deploying with Docker is straightforward, and everything works fine as long as the number of replicas is 1. Increasing the number of replicas is difficult, but not impossible.
 
 ## License
 
