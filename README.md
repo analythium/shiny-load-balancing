@@ -48,6 +48,24 @@ docker push analythium/python-shiny-lb:0.1
 
 > If you are running your container behind a TLS Termination Proxy (load balancer) like Nginx or Caddy, add the option `--proxy-headers`, this will tell Uvicorn to trust the headers sent by that proxy telling it that the application is running behind HTTPS, etc. - [FastAPI docs](https://fastapi.tiangolo.com/deployment/docker/)
 
+### Shinylive
+
+[Shinylive](https://shiny.rstudio.com/py/docs/shinylive.html) is an experimental feature (Shiny + WebAssembly) that allows applications to run entirely in a web browser, without the need for a separate server running Python.
+
+We use the load balancing test application and build some static assets based on the `Dockerfile-lb-live` file:
+
+```bash
+# build
+# docker build -f Dockerfile.lb-live -t analythium/python-shiny-live-lb:0.1 .
+docker buildx build --platform=linux/amd64  -f Dockerfile.lb-live -t analythium/python-shiny-live-lb:0.1 .
+
+# run: open http://127.0.0.1:8080
+docker run -p 8080:8080 analythium/python-shiny-live-lb:0.1
+
+# push
+docker push analythium/python-shiny-live-lb:0.1
+```
+
 ### R-Shiny app
 
 ```shell
