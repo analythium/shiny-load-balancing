@@ -3,6 +3,9 @@
 This setup has 2 replicas of the app:
 
 ```bash
+export IMAGE="analythium/python-shiny-lb:0.1"
+# export IMAGE="analythium/r-shiny-lb:0.1"
+
 docker-compose up -d
 
 ## follow the logs
@@ -21,5 +24,11 @@ The `docker-compose-lb.yml` file uses [anchors and extensions](https://www.howto
 Try `lb_policy random` (default) to see the test fail. `lb_policy ip_hash` will succeed:
 
 ```bash
+export LB_POLICY="ip_hash"
+# export LB_POLICY="random"
+
+export IMAGE="analythium/python-shiny-lb:0.1"
+# export IMAGE="analythium/r-shiny-lb:0.1"
+
 docker-compose -f docker-compose-lb.yml up -d
 ```

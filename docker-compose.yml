@@ -25,7 +25,6 @@ services:
       - node
     environment:
       - HOST=":80"
-      - LB_POLICY=${LB_POLICY-ip_hash}
 
 volumes:
   caddy_data:

@@ -6,8 +6,8 @@
 flyctl auth login
 
 # prepare the launch (pick the Python or R version)
-export IMAGE=analythium/python-shiny-lb:0.1
-# export IMAGE=analythium/r-shiny-lb:0.1
+export IMAGE="analythium/python-shiny-lb:0.1"
+# export IMAGE="analythium/r-shiny-lb:0.1"
 flyctl launch --image $IMAGE
 
 # deploy is selected not to deploy
@@ -59,6 +59,6 @@ This might still fail if you increase instance count within the regions.
 
 ## Resources
 
-<https://community.fly.io/t/session-affinity-sticky-sessions/638>
-<https://github.com/fly-apps/nginx-cluster>
-<https://hosting.analythium.io/auto-scaling-shiny-apps-in-multiple-regions-with-fly-io/#scaling>
+- <https://community.fly.io/t/session-affinity-sticky-sessions/638>
+- <https://github.com/fly-apps/nginx-cluster>
+- <https://hosting.analythium.io/auto-scaling-shiny-apps-in-multiple-regions-with-fly-io/#scaling>

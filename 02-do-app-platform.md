@@ -3,7 +3,7 @@
 
 Using [`doctl`](https://docs.digitalocean.com/reference/doctl/):
 
-You'll need to [authenticate](https://docs.digitalocean.com/reference/doctl/reference/auth/)) first, and possibly use a named context if you are using multiple accounts:
+You'll need to [authenticate](https://docs.digitalocean.com/reference/doctl/reference/auth/) first, and possibly use a named context if you are using multiple accounts:
 
 ```bash
 # simplest
