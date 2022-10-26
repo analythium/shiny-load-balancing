@@ -1,5 +1,5 @@
 
-### DigitalOcean App Platform
+# DigitalOcean App Platform
 
 Using [`doctl`](https://docs.digitalocean.com/reference/doctl/):
 
@@ -35,7 +35,7 @@ export ID=d53da7f9-7b23-48af-9f2f-5224210df12c
 doctl apps delete $ID --force
 ```
 
-#### Scaling on DO App Platform
+## Scaling on DO App Platform
 
 Scale the app: first change the instance size to professional (basic plan cannot have instance count >1):
 
@@ -57,3 +57,5 @@ Next change the instance count:
 And run `doctl apps create --spec app.yml --upsert` once more.
 
 Visit the app URL, and you'll see _Status: Failure!_.
+
+For the R app, use the `app-r.yml` file.

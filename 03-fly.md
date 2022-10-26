@@ -1,15 +1,14 @@
-### Fly.io
+# Fly.io
 
-https://community.fly.io/t/session-affinity-sticky-sessions/638
-https://github.com/fly-apps/nginx-cluster
-https://hosting.analythium.io/auto-scaling-shiny-apps-in-multiple-regions-with-fly-io/#scaling
 
 ```bash
 # log in
 flyctl auth login
 
-# prepare the launch
-flyctl launch --image analythium/python-shiny-lb:0.1
+# prepare the launch (pick the Python or R version)
+export IMAGE=analythium/python-shiny-lb:0.1
+# export IMAGE=analythium/r-shiny-lb:0.1
+flyctl launch --image $IMAGE
 
 # deploy is selected not to deploy
 flyctl deploy
@@ -18,7 +17,7 @@ flyctl deploy
 flyctl status
 ```
 
-#### Scaling on Fly.io
+## Scaling on Fly.io
 
 **Scale instance count in a single region**
 
@@ -34,7 +33,7 @@ Going to the app URL, we can see _Status: Failure!_
 
 Destroy the app with `flyctl destroy <app_name>` before we go on to avoid any caching related issues.
 
-**Increase number of regions**
+## Increase number of regions
 
 According to [this thread](https://community.fly.io/t/session-affinity-sticky-sessions/638) we can place instances in different regions to make sure traffic is only going to the closest instance.
 
@@ -57,3 +56,9 @@ Going to the app URL, soon you will see _Status: Test complete_.
 Destroy the app with `flyctl destroy <app_name>`.
 
 This might still fail if you increase instance count within the regions.
+
+## Resources
+
+<https://community.fly.io/t/session-affinity-sticky-sessions/638>
+<https://github.com/fly-apps/nginx-cluster>
+<https://hosting.analythium.io/auto-scaling-shiny-apps-in-multiple-regions-with-fly-io/#scaling>

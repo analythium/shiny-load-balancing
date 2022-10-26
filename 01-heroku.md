@@ -1,4 +1,4 @@
-### Heroku
+# Heroku
 
 Install Git and the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and log in using `heroku login`.
 
@@ -24,7 +24,7 @@ Get the app URL from `heroku info`, then check the app.
 
 [Delete the app](https://help.heroku.com/LGKL6LTN/how-do-i-delete-destroy-a-heroku-application) from the dashboard or use `heroku apps:destroy --confirm=python-shiny` (this will remove the git remote as well).
 
-#### Scaling on Heroku
+## Scaling on Heroku
 
 
 Change [dyno type](https://devcenter.heroku.com/articles/dyno-types) to allow scaling to >1:
@@ -41,3 +41,5 @@ heroku ps:scale web=2
 ```
 
 Visit the app URL, and you'll see _Status: Failure!_.
+
+For the R version, edit the `heroku.yml` to use `Dockerfile.lb-r`.
