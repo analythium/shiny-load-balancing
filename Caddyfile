@@ -1,5 +1,5 @@
 {$HOST} {
     reverse_proxy /* node:8080 {
-        lb_policy $LB_POLICY
+        lb_policy ip_hash
     }
 }
