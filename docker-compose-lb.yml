@@ -1,7 +1,7 @@
-version: "3.7"
+version: "3.8"
 
 x-node: &node
-  image: analythium/python-shiny-lb:0.1
+  image: ${IMAGE-analythium/python-shiny-lb:0.1}
   restart: always
   expose:
     - "8080"
@@ -31,6 +31,7 @@ services:
       - node3
     environment:
       - HOST=":80"
+      - LB_POLICY=${LB_POLICY-ip_hash}
 
 volumes:
   caddy_data:
