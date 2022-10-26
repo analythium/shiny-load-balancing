@@ -66,6 +66,9 @@ docker run -p 8080:8080 analythium/python-shiny-live-lb:0.1
 docker push analythium/python-shiny-live-lb:0.1
 ```
 
+The [`docs`](docs) folder contains the exported Shinylive site with the static HTML, which is also deployed to GitHub Pages:
+<https://hub.analythium.io/shiny-load-balancing>.
+
 ### R-Shiny app
 
 The R version is a port of the Python app.
