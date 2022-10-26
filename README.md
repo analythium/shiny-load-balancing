@@ -68,6 +68,8 @@ docker push analythium/python-shiny-live-lb:0.1
 
 ### R-Shiny app
 
+The R version is a port of the Python app.
+
 ```shell
 # build
 # docker build -f Dockerfile.lb-r -t analythium/r-shiny-lb:0.1 .
