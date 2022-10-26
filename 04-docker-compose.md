@@ -31,4 +31,9 @@ export IMAGE="analythium/python-shiny-lb:0.1"
 # export IMAGE="analythium/r-shiny-lb:0.1"
 
 docker-compose -f docker-compose-lb.yml up -d
+
+## follow the logs
+docker-compose logs -f
+
+docker-compose down --remove-orphans
 ```
