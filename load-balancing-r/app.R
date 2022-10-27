@@ -1,7 +1,7 @@
 library(shiny)
 library(bslib)
 
-ui <-fixedPage(
+ui <- fixedPage(
     theme = bs_theme(version = 5), # force BS v5
     markdown("
 ## Sticky load balancing test in R-Shiny
