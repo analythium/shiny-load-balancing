@@ -16,7 +16,15 @@ The following options support WebSockets, so let's see how well they can load ba
 - [Fly.io](./03-fly.md)
 - [Docker Compose](./04-docker-compose.md)
 
-Deploying with Docker is straightforward, and everything works fine as long as the number of replicas is 1. Increasing the number of replicas is trickier, but not impossible.
+Deploying with Docker is straightforward, and everything works fine as long as the number of replicas is 1. Increasing the number of replicas is trickier, but not impossible:
+
+| Hosting option  | Scaling instances  | Multiple regions  |
+|---|---|---|
+| [Heroku](./01-heroku.md)  | ✅  | ❌  |
+| [DigitalOcean App Platform](./02-do-app-platform.md)  | ❌  | ❌  |
+| [Fly.io](./03-fly.md)  | ❌  | ✅  |
+| [Docker Compose](./04-docker-compose.md)  | ✅  | ❌  |
+
 
 This repository contains supporting material ofr the following blog posts on the _Hosting Data Apps_ ([hosting.analythium.io](https://hosting.analythium.io/)) website:
 
