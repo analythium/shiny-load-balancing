@@ -91,9 +91,6 @@ docker run -p 8080:8080 analythium/r-shiny-lb:0.1
 
 # push
 docker push analythium/r-shiny-lb:0.1
-
-# DO
-doctl apps create --spec app-r.yml
 ```
 
 ## License

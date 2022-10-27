@@ -64,4 +64,9 @@ Visit the app URL, and you'll see _Status: Failure!_.
 
 ## R version
 
-For the R app, use the `app-r.yml` file and repeat the steps above.
+For the R app, use the `app-r.yml` file and repeat the steps above:
+
+```bash
+# DO
+doctl apps create --spec app-r.yml
+```
