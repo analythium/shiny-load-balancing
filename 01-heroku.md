@@ -30,6 +30,12 @@ Get the app URL from `heroku info`, then check the app.
 
 ## Scaling on Heroku
 
+Enabling [session affinity](https://devcenter.heroku.com/articles/session-affinity):
+
+```bash
+heroku features:enable http-session-affinity
+```
+
 Change [dyno type](https://devcenter.heroku.com/articles/dyno-types) to allow scaling to >1:
 
 ```bash
@@ -43,7 +49,15 @@ heroku ps:type web=standard-1x
 heroku ps:scale web=2
 ```
 
-Visit the app URL, and you'll see _Status: Failure!_.
+It should say _Status: Test complete_.
+
+Now let's disable session affinity:
+
+```bash
+heroku features:disable http-session-affinity
+```
+
+Visit the app URL again, refresh, and you'll see _Status: Failure!_.
 
 ## Cleanup
 
