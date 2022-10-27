@@ -28,7 +28,7 @@ Deploying with Docker is straightforward, and everything works fine as long as t
 
 This repository contains supporting material ofr the following blog posts on the _Hosting Data Apps_ ([hosting.analythium.io](https://hosting.analythium.io/)) website:
 
-- [Containerizing Shiny for Python Applications](https://hosting.analythium.io/)
+- [Containerizing Shiny for Python and Shinylive Applications](https://hosting.analythium.io/containerizing-shiny-for-python-and-shinylive-applications/)
 
 ## Testing sticky sessions
 
