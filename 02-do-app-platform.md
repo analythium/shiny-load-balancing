@@ -1,9 +1,13 @@
 
 # DigitalOcean App Platform
 
-Using [`doctl`](https://docs.digitalocean.com/reference/doctl/):
+- [Back to README](./README.md)
+- [Heroku](./01-heroku.md)
+- DigitalOcean App Platform
+- [Fly.io](./03-fly.md)
+- [Docker Compose](./04-docker-compose.md)
 
-You'll need to [authenticate](https://docs.digitalocean.com/reference/doctl/reference/auth/) first, and possibly use a named context if you are using multiple accounts:
+Using [`doctl`](https://docs.digitalocean.com/reference/doctl/),you'll need to [authenticate](https://docs.digitalocean.com/reference/doctl/reference/auth/) first, and possibly use a named context if you are using multiple accounts:
 
 ```bash
 # simplest
@@ -58,4 +62,6 @@ And run `doctl apps create --spec app.yml --upsert` once more.
 
 Visit the app URL, and you'll see _Status: Failure!_.
 
-For the R app, use the `app-r.yml` file.
+## R version
+
+For the R app, use the `app-r.yml` file and repeat the steps above.

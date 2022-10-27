@@ -1,15 +1,30 @@
 # Fly.io
 
+- [Back to README](./README.md)
+- [Heroku](./01-heroku.md)
+- [DigitalOcean App Platform](./02-do-app-platform.md)
+- Fly.io
+- [Docker Compose](./04-docker-compose.md)
+
+Install [`flyctl`](https://fly.io/docs/hands-on/install-flyctl/), then log in:
 
 ```bash
 # log in
 flyctl auth login
+```
 
+Pick the Python or R version of the app here:
+
+```bash
 # prepare the launch (pick the Python or R version)
 export IMAGE="analythium/python-shiny-lb:0.1"
 # export IMAGE="analythium/r-shiny-lb:0.1"
 flyctl launch --image $IMAGE
+```
 
+The app is not yet deployed, this is what you have to do:
+
+```bash
 # deploy is selected not to deploy
 flyctl deploy
 
@@ -19,7 +34,7 @@ flyctl status
 
 ## Scaling on Fly.io
 
-**Scale instance count in a single region**
+### Scale instance count in a single region
 
 ```bash
 flyctl scale show
@@ -33,7 +48,7 @@ Going to the app URL, we can see _Status: Failure!_
 
 Destroy the app with `flyctl destroy <app_name>` before we go on to avoid any caching related issues.
 
-## Increase number of regions
+### Increase number of regions
 
 According to [this thread](https://community.fly.io/t/session-affinity-sticky-sessions/638) we can place instances in different regions to make sure traffic is only going to the closest instance.
 
