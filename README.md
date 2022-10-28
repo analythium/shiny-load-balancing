@@ -9,14 +9,7 @@ When it comes to _alternative options_, the [docs](https://shiny.rstudio.com/py/
 - have support for _WebSockets_, and
 - use _sticky_ load balancing.
 
-The following options support WebSockets, so let's see how well they can load balance among multiple app processes:
-
-- [Heroku](./01-heroku.md)
-- [DigitalOcean App Platform](./02-do-app-platform.md)
-- [Fly.io](./03-fly.md)
-- [Docker Compose](./04-docker-compose.md)
-
-Deploying with Docker is straightforward, and everything works fine as long as the number of replicas is 1. Increasing the number of replicas is trickier, but not impossible:
+The following options support WebSockets, and deploying with Docker is straightforward Increasing the number of replicas and properly load balancing between them is trickier, but not impossible:
 
 | Hosting option  | Scaling instances  | Multiple regions  |
 |---|---|---|
