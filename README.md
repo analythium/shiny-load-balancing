@@ -74,7 +74,7 @@ The [`docs`](docs) folder contains the exported Shinylive site with the static H
 
 The R version is a port of the Python app.
 
-```shell
+```bash
 # build
 # docker build -f Dockerfile.lb-r -t analythium/r-shiny-lb:0.1 .
 docker buildx build --platform=linux/amd64 -f Dockerfile.lb-r -t analythium/r-shiny-lb:0.1 .
