@@ -70,7 +70,7 @@ Going to the app URL, soon you will see _Status: Test complete_.
 
 Destroy the app with `flyctl destroy <app_name>`.
 
-This might still fail if you increase instance count within the regions.
+This might still fail if you increase instance count within the regions. You should also check if the instances were assigned into different regions, otherwise sticky session might not work as advertized.
 
 ## Resources
 

@@ -15,7 +15,7 @@ The following options support WebSockets, and deploying with Docker is straightf
 |---|---|---|
 | [Heroku](./01-heroku.md)  | ✅  | ❌  |
 | [DigitalOcean App Platform](./02-do-app-platform.md)  | ❌  | ❌  |
-| [Fly.io](./03-fly.md)  | ❌  | ✅  |
+| [Fly.io](./03-fly.md)  | ❌  | ❓  |
 | [Docker Compose](./04-docker-compose.md)  | ✅  | ❌  |
 
 
