@@ -35,7 +35,7 @@ We use the `Dockerfile.lb` and the app in the [`load-balancing`](load-balancing)
 
 Build, test run the image, and push to Docker Hub:
 
-```shell
+```bash
 # build
 # docker build -f Dockerfile.lb -t analythium/python-shiny-lb:0.1 .
 docker buildx build --platform=linux/amd64 -f Dockerfile.lb -t analythium/python-shiny-lb:0.1 .
